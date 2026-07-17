@@ -40,9 +40,10 @@ public class BookController {
         return "ID " + id + " bo'lgan kitob muvaffaqiyatli o'chirildi!";
     }
     //rent
-    @PutMapping("/{id}/rent")
-    public Book rent(@PathVariable Long id) {
-        return bookService.rentBook(id);
+    // 1. Manzilga /{userId} qismini qo'shamiz
+    @PutMapping("/{id}/rent/{userId}")
+    public Book rent(@PathVariable Long id, @PathVariable Long userId) { // 2. Parametrga Long userId qo'shamiz
+        return bookService.rentBook(id, userId); // 3. Servisga ikkala ID-ni uzatamiz
     }
 
     //return

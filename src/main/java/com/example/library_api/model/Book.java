@@ -21,6 +21,19 @@ public class Book {
 
     private boolean available = true;
 
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User borrowedBy;
+
+    public User getBorrowedBy() {
+        return borrowedBy;
+    }
+
+    public void setBorrowedBy(User borrowedBy) {
+        this.borrowedBy = borrowedBy;
+    }
+
     public Book(){};
 
     public Book(String title, String author) {
